@@ -21,9 +21,3 @@ yarn-error.log
 composer.phar
 !public/media/.gitkeep
 /public/media/
-
-## > encryption key
-!config/encryption/.gitkeep
-/config/encryption/
-!/ressources/.gitkeep
-/ressources/
