@@ -8,3 +8,22 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+/.docker/data/mysql/
+.idea/
+*.DS_Store
+composer.phar
+!public/media/.gitkeep
+/public/media/
+
+## > encryption key
+!config/encryption/.gitkeep
+/config/encryption/
+!/ressources/.gitkeep
+/ressources/
