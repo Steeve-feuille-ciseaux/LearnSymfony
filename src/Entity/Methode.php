@@ -41,6 +41,10 @@ class Methode
     #[ORM\Column(length: 255)]
     private ?string $devReferant = null;
 
+    #[ORM\ManyToOne(inversedBy: 'methodes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Feature $feature = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +154,18 @@ class Methode
     public function setDevReferant(string $devReferant): self
     {
         $this->devReferant = $devReferant;
+
+        return $this;
+    }
+
+    public function getFeature(): ?Feature
+    {
+        return $this->feature;
+    }
+
+    public function setFeature(?Feature $feature): self
+    {
+        $this->feature = $feature;
 
         return $this;
     }
