@@ -22,7 +22,7 @@ class FeatureController extends AbstractController
         ]);
     }
 
-    #[Route('/read', name: ('app_read'))]
+    #[Route('/home', name: ('app_read'))]
     public function featureList(FeatureRepository $featureRepository)
     {
         $feature = $featureRepository->findAll();
@@ -46,7 +46,7 @@ class FeatureController extends AbstractController
             return $this->redirectToRoute("app_read");
         }
 
-        return $this->render('admin/addFeature.html.twig', ['featureForm' => $featureForm->createView()]);
+        return $this->render('form/featureForm.html.twig', ['featureForm' => $featureForm->createView()]);
 
     }
 }
