@@ -1,0 +1,12 @@
+{% extends 'index.html.twig' %}
+
+{% block body %}
+    Contenu actuel :
+
+    {% for feature in features %}
+        <br>
+        <p>Fonctionnalité : {{ feature.nom }}
+            <br> Possibilité : {{ feature.nbSolution }}
+        </p>
+    {% endfor %}
+{% endblock %}
