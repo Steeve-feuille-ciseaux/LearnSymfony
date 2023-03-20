@@ -1,8 +1,14 @@
 
 {{ form_start(featureForm) }}
 
-{{ form_widget(featureForm.nom) }}
+<p>Fonctionnalité  : {{ form_widget(featureForm.nom, {'attr': {'class': 'form-control required', 'placeholder': 'Nom'}}) }}</p>
+<p>Nombre de possibilité : {{ form_widget(featureForm.nbSolution, {'attr': {'class': 'form-control required', 'placeholder': 'Combien'}}) }}</p>
 
-{{ form_widget(featureForm.nbSolution) }}
+<ul>
+{#    {% for methode in featureForm.methodes %}#}
+{#        Méthode N°{{ loop.index }}<br/>#}
+{#        <li>{{ form_row(methode) }}</li>#}
+{#    {% endfor %}#}
+</ul>
 
 {{ form_end(featureForm) }}

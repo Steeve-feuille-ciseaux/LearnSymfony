@@ -21,7 +21,7 @@ class Feature
     #[ORM\Column]
     private ?int $nbSolution = null;
 
-    #[ORM\OneToMany(mappedBy: 'feature', targetEntity: Methode::class)]
+    #[ORM\OneToMany(mappedBy: 'feature', targetEntity: Methode::class, cascade: ['persist'])]
     private Collection $methodes;
 
     public function __construct()

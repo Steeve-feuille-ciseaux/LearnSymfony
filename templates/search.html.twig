@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section>
+        <form action="{{ path('app_search') }}" method="get">
+            <input type="text" name="term" placeholder="Quelle fonctionnée souhaitez-vous ?">
+            <br><br>
+            <input type="submit" value="Rechercher">
+        </form>
+        <div class="row">
+            {% for feature in features %}
+                <div class="col-4 col-6-medium col-12-small">
+                    <a href="{{ path('app_read', {'id' : feature.id}) }}" class="image fit size">
+                        {{ feature.nom }}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

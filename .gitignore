@@ -13,3 +13,4 @@
 composer.phar
 !public/media/.gitkeep
 /public/media/
+/node_modules/

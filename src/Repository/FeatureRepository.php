@@ -30,6 +30,26 @@ class FeatureRepository extends ServiceEntityRepository
         }
     }
 
+    public function searchByTerm($term)
+    {
+        // QueryBuilder permet de créer des requêtes SQL en PHP
+        $queryBuilder = $this->createQueryBuilder('feature');
+
+        // Requête
+        $query = $queryBuilder
+            ->select('feature')
+            ->leftJoin('feature.methodes', 'methodes') // leftJoin sur la table format
+            ->where('feature.nom LIKE :term') // WHERE en SQL
+            ->orwhere('methodes.nom LIKE :term') // WHERE en SQL
+            ->orWhere('methodes.projet LIKE :term')
+            ->orWhere('methodes.devReferant LIKE :term')
+            ->setParameter('term', '%' . $term . '%')
+            // On attribue le term rentré et on sécurise
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
     public function remove(Feature $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
